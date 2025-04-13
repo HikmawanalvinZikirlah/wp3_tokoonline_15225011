@@ -5,7 +5,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProdukController; 
+use App\Http\Controllers\ProdukController;
 
 
 Route::get('/', function () {
@@ -52,3 +52,10 @@ Route::post('backend/laporan/cetakproduk', [ProdukController::class, 'cetakProdu
 ->name('backend.laporan.cetakproduk')->middleware('auth');
 
 Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
+
+Route::get('/produk/detail/{id}', [ProdukController::class, 'detail'])->name('produk.detail');
+
+Route::get('/produk/kategori/{id}', [ProdukController::class, 'produkKategori'])->name('produk.kategori');
+
+Route::get('/produk/all', [ProdukController::class, 'produkAll'])->name('produk.all');
+
